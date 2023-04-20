@@ -76,7 +76,7 @@ module.exports = class {
   }
 
   async startService() {
-    const installPossibleNewDeps = 'nvm use && npm install --production --force'
+    const installPossibleNewDeps = 'source ~/.profile && npm install --production --force'
     const startPm2ServiceThingy = 'pm2 reload ecosystem.config.js'
     if (await this.exec(`${installPossibleNewDeps} && ${startPm2ServiceThingy}`))
       throw new Error('deployment failed')
